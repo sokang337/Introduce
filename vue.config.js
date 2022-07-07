@@ -1,7 +1,9 @@
-// const { defineConfig } = require('@vue/cli-service')
-/* module.exports = defineConfig({
+/* const { defineConfig } = require('@vue/cli-service')
+module.exports = defineConfig({
   transpileDependencies: true
 }) */
+
 module.exports = {
-  publicPath: '/IntroduceVue'
+  publicPath: 'Introduce',
+  outputDir: 'docs'
 }
