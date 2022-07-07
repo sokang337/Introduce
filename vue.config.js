@@ -4,6 +4,6 @@ module.exports = defineConfig({
 }) */
 
 module.exports = {
-  publicPath: 'Introduce',
-  outputDir: 'docs'
+  publicPath: '/Introduce',
+  outputDir: './docs'
 }
