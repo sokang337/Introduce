@@ -1,0 +1,294 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background: #000;
+    -webkit-overflow-scrolling: touch;
+    height: 5000px;
+}
+
+.world {
+    position: fixed;
+    top: 78px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    perspective: 1000px;
+}
+
+.stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transform: rotateY(20deg);
+}
+
+.house {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    transform-style: preserve-3d;
+    transform: translateZ(-500vw);
+
+    &__wall {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+
+        &--left {
+            width: 1000vw;
+            transform: rotateY(90deg) translateZ(-500vw);
+            background: #f8f8f8;
+        }
+        &--right {
+            width: 1000vw;
+            transform: rotateY(90deg) translateZ(-400vw);
+            background: #f8f8f8;
+        }
+        &--front {
+            &-a {
+                transform: translateZ(450vw);
+            }
+            
+            &-b {
+                transform: translateZ(250vw);
+            }
+            
+            &-c {
+                transform: translateZ(-100vw);
+            }
+            
+            &-d {
+                transform: translateZ(-450vw);
+            }
+        }
+    }
+    &__contents {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        color: #333;
+        font-size: 5em;
+    }
+}
+
+.progress {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 5px;
+    background: rgb(64, 224, 163);
+    
+    &__bar {
+        width: 0%;
+        height: 100%;
+        background: #00afff;
+    }
+}
+
+.char {
+    position: absolute;
+    left: 3%;
+    bottom: 5%;
+    width: 12vw;
+    height: 56vw;
+    transform-style: preserve-3d;
+
+    &__con {
+        position: absolute;
+        transform-style: preserve-3d;
+        transition: 1s;
+    }
+
+    &__face {
+        position: absolute;
+        top: 0;
+        left: 5%;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        backface-visibility: hidden;
+       
+        &.face-back {
+          transform: rotateY(180deg);
+        }
+    }
+
+    &__head { //머리 부분
+        z-index: 60;
+        top: 27.5%;
+        left: 2%;
+        width: 88%;
+        height: calc(23 / 100 * 100%);
+        transform-origin: center bottom;
+        animation: ani-head 0.6s infinite alternate cubic-bezier(0.46, 0.18, 0.66, 0.93);
+
+        &-face {
+            //머리의 각 면
+            &.face-front {
+                background-image: url('../character/img_head.png')
+            }
+         
+            &.face-back {
+                background-image: url('../character/img_head.png')
+            }
+        }
+    }
+
+    &__torso {
+        //몸통 부분
+        z-index: 50;
+        left: calc(208 / 856 * 100%);
+        top: calc(647 / 1334 * 100%);
+        width: calc(428 / 856 * 100%);
+        height: calc(385 / 1334 * 100%);
+        transform-origin: center center;
+       
+        &-face {
+          //몸통의 각 양면
+          &.face-front {
+            background-image: url('../character/img_body.png')
+          }
+       
+          &.face-back {
+            background-image: url('../character/img_body.png')
+          }
+        }
+    }
+
+    &__armRight {
+        z-index: 61;
+        top: 51%;
+        left: 14px;
+        width: 37%;
+        height: 14.5%;
+        transform-origin: right top;
+        animation: ani-running-right-arm 0.6s infinite alternate cubic-bezier(0.46, 0.18, 0.66, 0.93);
+        .face-front {
+            background-image: url('../character/left_3.png')
+        }
+       
+        .face-back {
+            background-image: url('../character/left_3.png')
+        }
+    }
+
+    &__armLeft {
+        z-index: 111;
+        top: 50.5%;
+        left: 52%;
+        width: 35%;
+        height: 14.5%;
+        transform-origin: top right;
+        animation: ani-running-left-arm 0.6s infinite alternate cubic-bezier(0.46, 0.18, 0.66, 0.93);
+        .face-front {
+            background-image: url('../character/right_3.png')
+        }
+       
+        .face-back {
+            background-image: url('../character/right_3.png')
+        }
+    }
+
+    
+    /* &__legRight {
+        top: calc(1031 / 1334 * 100%);
+        left: calc(200 / 856 * 100%);
+        width: calc(230 / 856 * 100%);
+        height: calc(300 / 1334 * 100%);
+        transform-origin: center top;
+       
+        .face-front {
+            background-image: url('../MZC_logo_200_182_white.png')
+        }
+       
+        .face-back {
+            background-image: url('../MZC_logo_200_182_white.png')
+        }
+    }
+
+    &__legLeft {
+        top: calc(1031 / 1334 * 100%);
+        left: calc(414 / 856 * 100%);
+        width: calc(230 / 856 * 100%);
+        height: calc(300 / 1334 * 100%);
+        transform-origin: center top;
+       
+        .face-front {
+            background-image: url('../MZC_logo_200_182_white.png')
+        }
+       
+        .face-back {
+            background-image: url('../MZC_logo_200_182_white.png')
+        }
+    } */
+}
+.char.running {
+    .char__armRight {
+      animation: ani-running-arm 0.2s alternate infinite linear;
+    }
+   
+    .char__armLeft {
+      animation: ani-running-arm 0.2s alternate-reverse infinite linear;
+    }
+   
+    .char__legRight {
+      animation: ani-running-leg 0.2s alternate infinite linear;
+    }
+   
+    .char__legLeft {
+      animation: ani-running-leg 0.2s alternate-reverse infinite linear;
+    }
+}
+/* .char[data-direction='forward'] {
+    transform: rotateY(180deg);
+}
+.char[data-direction='backward'] {
+    transform: rotateY(0deg);
+}
+.char[data-direction='left'] {
+    transform: rotateY(-90deg);
+}
+.char[data-direction='right'] {
+    transform: rotateY(90deg);
+} */
+
+@keyframes ani-head {
+    100% {
+      transform: rotateX(20deg) rotateY(20deg);
+    }
+}
+@keyframes ani-running-left-arm {
+    0% {
+        transform: rotateX(-10deg);
+    }
+   
+    100% {
+        transform: rotateX(10deg);
+    }
+}
+@keyframes ani-running-right-arm {
+    0% {
+        transform: rotate(-5deg);
+    }
+   
+    100% {
+        transform: rotate(5deg);
+    }
+}
