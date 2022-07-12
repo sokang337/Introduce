@@ -196,7 +196,7 @@ body {
         width: 35%;
         height: 14.5%;
         transform-origin: top right;
-        animation: ani-running-left-arm 0.6s infinite alternate cubic-bezier(0.46, 0.18, 0.66, 0.93);
+        animation: ani-running-left-arm 0.6s infinite alternate-reverse cubic-bezier(0.46, 0.18, 0.66, 0.93);
         .face-front {
             background-image: url('../character/right_3.png')
         }
@@ -241,20 +241,20 @@ body {
 }
 .char.running {
     .char__armRight {
-      animation: ani-running-arm 0.2s alternate infinite linear;
+      animation: ani-running-right-arm 0.2s alternate infinite linear;
     }
    
     .char__armLeft {
-      animation: ani-running-arm 0.2s alternate-reverse infinite linear;
+      animation: ani-running-left-arm 0.2s alternate-reverse infinite linear;
     }
    
-    .char__legRight {
+    /* .char__legRight {
       animation: ani-running-leg 0.2s alternate infinite linear;
     }
    
     .char__legLeft {
       animation: ani-running-leg 0.2s alternate-reverse infinite linear;
-    }
+    } */
 }
 /* .char[data-direction='forward'] {
     transform: rotateY(180deg);
@@ -271,7 +271,7 @@ body {
 
 @keyframes ani-head {
     100% {
-      transform: rotateX(20deg) rotateY(20deg);
+      transform: rotate(10deg);
     }
 }
 @keyframes ani-running-left-arm {
