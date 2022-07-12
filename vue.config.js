@@ -3,8 +3,25 @@ module.exports = defineConfig({
     transpileDependencies: true,
     outputDir: './docs',
     lintOnSave: false
+    /* css: {
+        loaderOptions: {
+            sass: {
+                data: `
+                    @import "@/assets/scss/common.scss"
+                `
+            }
+        }
+    } */
 })
 
 /* module.exports = {
-  publicPath: '/Introduce',
+    css: {
+        loaderOptions: {
+          sass: {
+            data: `
+                @import "@/assets/scss/common.scss"
+            `
+          }
+        }
+    }
 } */
