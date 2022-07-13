@@ -76,14 +76,14 @@ export default {
         let maxScrollValue = null
         let scrollerPer = null
 
-        onMounted (() => {
+        onMounted(() => {
             houseElem = document.querySelector('.house')
             barElem = document.querySelector('.progress')
             window.addEventListener('scroll', scrollHandler)
             window.addEventListener('resize', resizeHandler)
             // window.addEventListener('mousemove', mouseMoveHandler)
         })
-        onUnmounted (() => {
+        onUnmounted(() => {
             console.log('2')
             window.removeEventListener('scroll', scrollHandler)
             window.removeEventListener('resize', resizeHandler)
@@ -116,5 +116,5 @@ export default {
 </script>
 
 <style lang="scss">
-    
+
 </style>>
