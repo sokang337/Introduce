@@ -2,20 +2,38 @@ const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
     transpileDependencies: true,
     outputDir: './docs',
-    lintOnSave: false,
-    chainWebpack: config => {
-        config.entry('theme') // you can add here as much themes as you want
-            .add('./src/assets/scss/common.scss')
-            .end()
-    },
+    lintOnSave: false
+    /* css: {
+        loaderOptions: {
+            scss: {
+                additionalData: `
+                    @import "@/assets/scss/common2.scss";
+                `
+            }
+        }
+    } */
 
-    css: {
+    /* css: {
         extract: {
             filename: '[name].css', // to have a name related to a theme
             chunkFilename: 'css/[name].css'
         },
         sourceMap: true
-    }
+    },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [{
+                    loader: 'vue-style-loader'
+                },
+                {
+                    loader: 'css-loader?sourceMap'
+                }
+                ]
+            }
+        ]
+    } */
     /* css: {
         loaderOptions: {
             sass: {
