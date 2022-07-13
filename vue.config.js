@@ -2,8 +2,7 @@ const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
     transpileDependencies: true,
     outputDir: './docs',
-    lintOnSave: false,
-    publicPath: 'Introduce'
+    lintOnSave: false
     /* css: {
         loaderOptions: {
             scss: {
