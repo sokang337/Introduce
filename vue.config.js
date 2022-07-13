@@ -3,7 +3,20 @@ module.exports = defineConfig({
     transpileDependencies: true,
     outputDir: './docs',
     lintOnSave: false,
+    chainWebpack: config => {
+        config.entry('theme') // you can add here as much themes as you want
+            .add('./src/assets/scss/common.scss')
+            .end()
+    },
+
     css: {
+        extract: {
+            filename: '[name].css', // to have a name related to a theme
+            chunkFilename: 'css/[name].css'
+        },
+        sourceMap: true
+    }
+    /* css: {
         loaderOptions: {
             sass: {
                 sassOptions: {
@@ -11,7 +24,7 @@ module.exports = defineConfig({
                 }
             }
         }
-    }
+    } */
     /* css: {
         loaderOptions: {
             sass: {
