@@ -1,20 +1,20 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es2021": true
+    env: {
+        browser: true,
+        commonjs: true,
+        es2021: true
     },
-    "extends": [
-        "plugin:vue/essential",
-        "standard"
+    extends: [
+        'plugin:vue/essential',
+        'standard'
     ],
-    "parserOptions": {
-        "ecmaVersion": 12
+    parserOptions: {
+        ecmaVersion: 12
     },
-    "plugins": [
-        "vue"
+    plugins: [
+        'vue'
     ],
-    "rules": {
+    rules: {
         indent: ['error', 4]
     }
 }
